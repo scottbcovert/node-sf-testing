@@ -10,14 +10,15 @@ app.get('/', function(request, response) {
 	var conn = new jsforce.Connection();
 	conn.login('scott.covert@df14.com', 'dfpassw0rdDAAtkhl4gx2pqFXueP10ZhivL', function(err, res) {
 	  if (err) { return console.error(err); }
-	  conn.query('SELECT Id, Name FROM Account ORDER BY Name DESC', function(err, res) {
+	  conn.query('SELECT Id, Name FROM Account ORDER BY Name ASC', function(err, res) {
 	    if (err) { return console.error(err); }
-	    var htmlResponse = '<html><body><table><tr><td><b>Account Name</b></td></tr>';
-	    res.records.forEach( function(account){
-	    	htmlResponse += '<tr>' + JSON.stringify(account.Name) + '</tr>';
-	    });
-	    htmlResponse+='</body></html>';
-	    response.send(htmlResponse);
+	    else {
+		    var htmlResponse = '<table><tr><td><b>Account Name</b></td></tr>';
+		    res.records.forEach( function(account){
+		    	htmlResponse += '<tr>' + JSON.stringify(account.Name) + '</tr>';
+		    });
+		    response.send(htmlResponse);
+		}
 	  });
 	});
 	  
