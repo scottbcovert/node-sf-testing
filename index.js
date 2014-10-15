@@ -15,6 +15,8 @@ app.get('/', function(request, response) {
 	    console.log(res);
 	  });
 	});
+
+	response.send('Hello World!')
 	  
 })
 
