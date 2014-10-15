@@ -15,7 +15,7 @@ app.get('/', function(request, response) {
 	    else {
 		    var htmlResponse = '<table><tr><td><b>Account Name</b></td></tr>';
 		    res.records.forEach( function(account){
-		    	htmlResponse += '<tr><td>' + JSON.stringify(account.Name).replace("\"","") + '</td></tr>';
+		    	htmlResponse += '<tr><td>' + JSON.stringify(account.Name).replace("\"","").replace("\"","") + '</td></tr>';
 		    });
 		    response.send(htmlResponse);
 		}
