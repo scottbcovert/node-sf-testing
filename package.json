@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "express": "~4.9.x"
+    "jsforce": "x"
   },
   "engines": {
     "node": "0.10.x"
@@ -19,7 +20,8 @@
   "keywords": [
     "node",
     "heroku",
-    "express"
+    "express",
+    "jsforce"
   ],
   "license": "MIT"
 }
