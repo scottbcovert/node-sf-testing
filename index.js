@@ -12,11 +12,13 @@ app.get('/', function(request, response) {
 	  if (err) { return console.error(err); }
 	  conn.query('SELECT Id, Name FROM Account ORDER BY Name DESC', function(err, res) {
 	    if (err) { return console.error(err); }
-	    console.log(res);
+	    var htmlResponse = '<table><tr><td><b>Account Name</b></td></tr>';
+	    res.records.forEach( function(account){
+	    	htmlResponse += '<tr>' + account.Name + '</tr>';
+	    }
+	    response.send(htmlResponse);
 	  });
 	});
-
-	response.send('Hello World!')
 	  
 })
 
