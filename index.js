@@ -14,7 +14,7 @@ app.get('/', function(request, response) {
 	    if (err) { return console.error(err); }
 	    var htmlResponse = '<table><tr><td><b>Account Name</b></td></tr>';
 	    res.records.forEach( function(account){
-	    	htmlResponse += '<tr>' + account.Name + '</tr>';
+	    	htmlResponse += '<tr>' + JSON.stringify(account.Name) + '</tr>';
 	    }
 	    response.send(htmlResponse);
 	  });
